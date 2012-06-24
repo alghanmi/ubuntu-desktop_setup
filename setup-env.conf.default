@@ -1,0 +1,28 @@
+## Super user Information
+## This is the same username you provided during the setup process
+SUPER_USER=""
+
+
+## Server Information
+SERVER_NAME=""		# Machine name, not FQDN
+SERVER_DOMAIN=""	# Domain name
+SERVER_OTHER_NAMES=""	# More domains if needed
+SUPPORT_EMAIL=""	# Email where system alerts should be routed to
+
+# SMTP Information for exim
+MAILER_SMARTHOST=""	# SMTP Server. For GMail or Google Apps use 'smtp.gmail.com::587'
+MAILER_EMAIL=""		# SMTP Username. For GMail or Google Apps use your complete email address
+MAILER_PASSWORD=""	# SMTP Password
+
+## Default values set, change if needed
+SERVER_IP="$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')"
+SSH_PORT="22"
+SERVER_LOCALE="en_US.UTF-8"
+
+
+## DON'T CHANGE - Setup-script variables
+PACKAGES_FILE=packages.list
+PACKAGES_SCRIPT=install-packages.sh
+IPTABLES_SCRIPT=iptables.sh
+BACKUP_SCRIPT=backup-script.sh
+USER_CONFIGURATION=user-config.sh

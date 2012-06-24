@@ -1,0 +1,99 @@
+##
+## Ubuntu Packages
+##
+
+## Libraries, Software & Development Essentials
+ssh openssh-server openssl
+build-essential binutils
+linux-headers-`uname -r` linux-headers-generic
+screen byobu
+
+## System tools
+sudo ntp
+
+## Networking Applications
+traceroute curl nmap dnsutils
+vpnc network-manager-vpnc network-manager-openvpn
+filezilla
+
+## Web Server
+lighttpd
+
+## Database Server
+mysql-server mysql-client
+mysql-workbench
+
+## Email
+exim4-daemon-light
+
+## Programming Languages & Platforms
+gdb colorgcc
+perl
+python3
+ruby1.9.1 ruby1.9.1-dev ri1.9.1
+php5-cgi php5-dev php5-curl php-pear
+openjdk-7-jdk ant maven
+
+## IDEs
+eclipse eclipse-cdt eclipse-jdt eclipse-jgit eclipse-xsd
+
+## Software Version Contorl
+subversion subversion-tools git git-svn gitweb mercurial bzr
+
+## Text Editors, Text/Markup Related Scripts
+vim-gtk vim-scripts vim-latexsuite
+emacs-snapshot-common emacs-snapshot-bin-common emacs-snapshot-el emacs-snapshot-gtk emacs-snapshot
+gedit-plugins gedit-developer-plugins gedit-latex-plugin
+nano enscript highlight astyle colordiff diffstat meld xml-twig-tools
+
+## Language Related Packages
+locales
+iamerican wamerican ispell
+
+## Helpful Applications
+unzip zip unrar unace p7zip par2 wipe
+
+## Disk Utilities
+gparted syslinux sshfs mtools mtp-tools mtpfs foremost
+
+## Desktop Tools
+nautilus-dropbox nautilus-scripts-manager nautilus-open-terminal python-gpgme
+compizconfig-settings-manager
+shutter
+
+## Desktop & Internet Applications
+google-chrome-stable google-talkplugin chromium-browser chromium-codecs-ffmpeg
+googleearth-package lynx
+thunderbird
+gpodder sabnzbdplus
+
+## Diagrams, Drawing & Graphics
+gimp gimp-data-extras gimp-plugin-registry inkscape dia
+community-themes
+xmedcon
+
+## Acrobat Reader & PDF Stuff
+acroread acroread-fonts 
+pdftk pdfedit cups-pdf
+
+## Fonts
+ttf-liberation ttf-ubuntu-font-family ttf-mscorefonts-installer ttf-arabeyes
+
+## Virtualization & Emulators
+virtualbox-4.1 dkms
+wine
+
+## Multimedia
+ubuntu-restricted-extras non-free-codecs lib32asound2
+libdvdcss2 vorbis-tools lame
+mplayer mencoder audacity
+vlc browser-plugin-vlc vlc-plugin-pulse
+banshee banshee-community-extensions
+easytag id3v2
+openshot
+handbrake-gtk handbrake-cli
+
+## LaTeX & Friends (if needed)
+texlive texlive-extra-utils texlive-latex-extra texlive-science
+texi2html chktex latex2html latex2rtf ghostscript ghostscript-x ps2eps
+texmaker gummi
