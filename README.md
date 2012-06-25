@@ -64,8 +64,8 @@ chmod 755 desktop_setup.sh
 ```
 
 
-Notable Setup Items
--------------------
+Notable Setup Actions
+---------------------
 The following actions are performed by the script:
 + Set repositories to include:
 	* All official main, restricted, universe, multiverse, backport and extra repositories
@@ -91,6 +91,13 @@ The following actions are performed by the script:
 	* Disable X11 forwarding
 	* Disable PAM & DNS
 	* Only allow `$SUPER_USER` to access machine via `ssh`
+
+
+Whats Next
+----------
+The following items are a kind of TODO list of what I should add to this script
++ GUI Preferences: the list of changes to the machine that can not be done with the command line
++ Incorporate configuration from my [dotfiles repository](https://github.com/alghanmi/dotfiles.conf)
 
 
 License
