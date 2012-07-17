@@ -299,6 +299,14 @@ chmod 600 /home/$SUPER_USER/.ssh/authorized_keys
 chmod 700 /home/$SUPER_USER/.ssh
 #TODO:.ssh/config file
 
+# Make GnuPG to use SHA2 in preference to SHA1
+gpg --version &> /dev/null
+echo "" >> ~/.gnupg/gpg.conf
+echo "# Use SHA2 in preference to SHA1" >> ~/.gnupg/gpg.conf
+echo "personal-digest-preferences SHA256" >> ~/.gnupg/gpg.conf
+echo "cert-digest-algo SHA256" >> ~/.gnupg/gpg.conf
+echo "default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed" >> ~/.gnupg/gpg.conf
+
 # Nano Syntax Highlight
 find /usr/share/nano/ -name "*.nanorc" -print | sed -e 's/^\(.*\)$/include "\1"/g' >> /home/$SUPER_USER/.nanorc
 

@@ -92,6 +92,7 @@ The following actions are performed by the script:
 	* Disable PAM & DNS
 	* Only allow `$SUPER_USER` to access machine via `ssh`
 + Disable *Guest Login* on greeting screen
++ Make GPG Use SHA256 instead of SHA1
 
 
 Whats Next
