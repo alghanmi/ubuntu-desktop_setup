@@ -314,6 +314,18 @@ chown -R www-data:www-data /home/www
 chown -R www-data:subversion /home/svn
 
 ##
+## Desktop Preferences
+##
+print_log "Desktop Preferences"
+print_prompt
+
+# Disable Guest Login
+cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.default
+echo "allow-guest=false" | tee -a /etc/lightdm/lightdm.conf
+service lightdm restart
+
+
+##
 ## Clean-up
 ##
 print_log "Repository Cache Cleanup"

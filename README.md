@@ -91,6 +91,7 @@ The following actions are performed by the script:
 	* Disable X11 forwarding
 	* Disable PAM & DNS
 	* Only allow `$SUPER_USER` to access machine via `ssh`
++ Disable *Guest Login* on greeting screen
 
 
 Whats Next
