@@ -94,7 +94,6 @@ The following actions are performed by the script:
 + Disable *Guest Login* on greeting screen
 + Make GPG Use SHA256 instead of SHA1
 
-
 Whats Next
 ----------
 The following items are a kind of TODO list of what I should add to this script
