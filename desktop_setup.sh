@@ -109,6 +109,7 @@ wget -q http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list -O- | te
 # Google Chrome, Chromium, Talk Plugin
 echo "# Google software repository" | tee /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
+echo "deb http://dl.google.com/linux/earth/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://ppa.launchpad.net/chromium-daily/stable/ubuntu $(lsb_release -cs) main " | tee -a /etc/apt/sources.list.d/google.list
@@ -153,7 +154,7 @@ sh $PACKAGES_SCRIPT
 rm $PACKAGES_SCRIPT $PACKAGES_FILE
 rm /etc/apt/sources.list.d/google-chrome.list
 rm /etc/apt/sources.list.d/google-talkplugin.list
-
+rm /etc/apt/sources.list.d/google-earth.list
 
 ##
 ## SuperUser Setup
