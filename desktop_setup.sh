@@ -108,7 +108,7 @@ echo "deb-src http://ppa.launchpad.net/cassou/emacs/ubuntu $(lsb_release -cs) ma
 wget -q http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list -O- | tee /etc/apt/sources.list.d/medibuntu.list 
 # Google Chrome, Chromium, Talk Plugin
 echo "# Google software repository" | tee /etc/apt/sources.list.d/google.list
-echo "deb http://dl.google.com/linux/deb/ stable non-free main" | tee -a /etc/apt/sources.list.d/google.list
+echo "deb http://dl.google.com/linux/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://ppa.launchpad.net/chromium-daily/stable/ubuntu $(lsb_release -cs) main " | tee -a /etc/apt/sources.list.d/google.list
