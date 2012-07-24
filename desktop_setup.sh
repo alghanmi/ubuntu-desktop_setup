@@ -285,16 +285,6 @@ mkdir -p /home/$SUPER_USER/src
 mkdir -p /home/svn
 mkdir -p /home/www
 
-# Updates to .bashrc
-print_log "SuperUser bashrc updates"
-sed -i 's/#alias \(.*\)grep=/alias \1grep=/g' /home/$SUPER_USER/.bashrc
-sed -i -e 's/\#force_color_prompt=/force_color_prompt=/' -e '/unset color_prompt force_color_prompt/i\
-\n# Change prompt color for remote users\
-if [ -n \"\$SSH_CLIENT\" ]; then\
-    PS1='\''\${debian_chroot:+(\$debian_chroot)}\\[\\033[01;31m\\]\\u@\\h:\\[\\033[01;31m\\]\\w >\\[\\033[00m\\] '\''\
-fi' /home/$SUPER_USER/.bashrc
-cat src/dot.bashrc >> /home/$SUPER_USER/.bashrc
-
 # Create a local SSH config file for hosts
 touch /home/$SUPER_USER/.ssh/authorized_keys
 chmod 600 /home/$SUPER_USER/.ssh/authorized_keys
@@ -308,9 +298,6 @@ echo "# Use SHA2 in preference to SHA1" >> ~/.gnupg/gpg.conf
 echo "personal-digest-preferences SHA256" >> ~/.gnupg/gpg.conf
 echo "cert-digest-algo SHA256" >> ~/.gnupg/gpg.conf
 echo "default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed" >> ~/.gnupg/gpg.conf
-
-# Nano Syntax Highlight
-find /usr/share/nano/ -name "*.nanorc" -print | sed -e 's/^\(.*\)$/include "\1"/g' >> /home/$SUPER_USER/.nanorc
 
 # Fix Ownership
 chown $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.bashrc
