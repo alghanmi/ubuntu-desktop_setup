@@ -214,6 +214,10 @@ update-alternatives --config ruby
 update-alternatives --config gem
 ln -s /usr/lib/jvm/java-7-openjdk-amd64/ /usr/lib/java
 
+## Hardware Sensors
+print_log "Detect Hardware Sensors - Add Modules to /etc/modules"
+sensors-detect
+
 ## Hostname
 print_log "HostName configuration"
 #echo "$SERVER_NAME.$SERVER_DOMAIN" | tee /etc/hostname

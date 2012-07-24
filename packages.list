@@ -9,7 +9,7 @@ linux-headers-`uname -r` linux-headers-generic
 screen byobu
 
 ## System tools
-sudo ntp
+sudo ntp lm-sensors
 
 ## Networking Applications
 traceroute curl nmap dnsutils
