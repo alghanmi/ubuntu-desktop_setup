@@ -303,7 +303,7 @@ chmod 700 /home/$SUPER_USER/.ssh
 #TODO:.ssh/config file
 
 # Make GnuPG to use SHA2 in preference to SHA1
-gpg --version &> /dev/null
+gpg --list-keys &> /dev/null
 echo "" >> ~/.gnupg/gpg.conf
 echo "# Use SHA2 in preference to SHA1" >> ~/.gnupg/gpg.conf
 echo "personal-digest-preferences SHA256" >> ~/.gnupg/gpg.conf
@@ -318,6 +318,7 @@ chown $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.bashrc
 chown $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.nanorc
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/work
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.ssh
+chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.gpg
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/bin
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/svn
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/src
@@ -333,7 +334,6 @@ print_prompt
 # Disable Guest Login
 cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.default
 echo "allow-guest=false" | tee -a /etc/lightdm/lightdm.conf
-service lightdm restart
 
 
 ##
