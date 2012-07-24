@@ -245,6 +245,7 @@ cp /etc/exim4/update-exim4.conf.conf /etc/exim4/update-exim4.conf.conf.default
 sed -i -e "s/^dc_eximconfig_configtype='.*'/dc_eximconfig_configtype='smarthost'/" \
     -e "s/^dc_other_hostnames='.*'/dc_other_hostnames=''/" \
     -e "s/^dc_smarthost='.*'/dc_smarthost='$MAILER_SMARTHOST'/" \
+    -e "s/^dc_readhost=='.*'/dc_readhost=='$SERVER_NAME.$SERVER_DOMAIN'/" \
     -e "s/^dc_hide_mailname='.*'/dc_hide_mailname='false'/"  /etc/exim4/update-exim4.conf.conf
 echo "$SERVER_NAME.$SERVER_DOMAIN" | tee /etc/mailname
 echo "*:$MAILER_EMAIL:$MAILER_PASSWORD" | tee -a /etc/exim4/passwd.client
