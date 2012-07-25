@@ -120,10 +120,10 @@ echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) co
 # Dropbox
 echo "# Dropbox" | tee /etc/apt/sources.list.d/dropbox.list
 echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/dropbox.list
-# Handbrake (TODO: fix hack once precise package is available)
+# Handbrake
 echo "# Handbrake" | tee /etc/apt/sources.list.d/handbrake.list
-echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu oneiric main" | tee -a /etc/apt/sources.list.d/handbrake.list
-echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu oneiric main" | tee -a /etc/apt/sources.list.d/handbrake.list
+echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/handbrake.list
+echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/handbrake.list
 
 ## External Repository Keys
 wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | apt-key add -
