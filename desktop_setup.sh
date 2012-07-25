@@ -120,6 +120,10 @@ echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) co
 # Dropbox
 echo "# Dropbox" | tee /etc/apt/sources.list.d/dropbox.list
 echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/dropbox.list
+# MPlayer
+echo "# MPlayer" | tee /etc/apt/sources.list.d/mplayer.list
+echo "deb http://ppa.launchpad.net/motumedia/mplayer-daily/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/mplayer.list
+echo "deb-src http://ppa.launchpad.net/motumedia/mplayer-daily/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/mplayer.list
 # Handbrake
 echo "# Handbrake" | tee /etc/apt/sources.list.d/handbrake.list
 echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/handbrake.list
@@ -132,6 +136,7 @@ wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | s
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com CEC45805 #Emacs24
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5 #Chromium PPA
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5044912E #Dropbox
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 06438B87 #MPlayer
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 816950D8 #Handbrake
 
 ## Update system
