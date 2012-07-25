@@ -120,10 +120,6 @@ echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) co
 # Dropbox
 echo "# Dropbox" | tee /etc/apt/sources.list.d/dropbox.list
 echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/dropbox.list
-# SABNZBd Plus
-echo "# SABnzbd" | tee -a /etc/apt/sources.list.d/sabnzbd.list
-echo "deb http://ppa.launchpad.net/jcfp/ppa/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/sabnzbd.list
-echo "deb-src http://ppa.launchpad.net/jcfp/ppa/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/sabnzbd.list
 # Handbrake (TODO: fix hack once precise package is available)
 echo "# Handbrake" | tee /etc/apt/sources.list.d/handbrake.list
 echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu oneiric main" | tee -a /etc/apt/sources.list.d/handbrake.list
@@ -136,7 +132,6 @@ wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | s
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com CEC45805 #Emacs24
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5 #Chromium PPA
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5044912E #Dropbox
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4BB9F05F #SABnzbd
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 816950D8 #Handbrake
 
 ## Update system
