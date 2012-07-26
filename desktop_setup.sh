@@ -301,7 +301,6 @@ mkdir -p /home/www
 touch /home/$SUPER_USER/.ssh/authorized_keys
 chmod 600 /home/$SUPER_USER/.ssh/authorized_keys
 chmod 700 /home/$SUPER_USER/.ssh
-#TODO:.ssh/config file
 
 # Make GnuPG to use SHA2 in preference to SHA1
 gpg --list-keys &> /dev/null
