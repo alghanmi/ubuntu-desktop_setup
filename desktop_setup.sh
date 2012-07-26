@@ -212,7 +212,6 @@ update-alternatives --config java
 update-alternatives --config x-www-browser
 update-alternatives --config ruby
 update-alternatives --config gem
-ln -s /usr/lib/jvm/java-7-openjdk-amd64/ /usr/lib/java
 
 ## Hardware Sensors
 print_log "Detect Hardware Sensors - Add Modules to /etc/modules"
