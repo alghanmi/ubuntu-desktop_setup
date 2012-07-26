@@ -18,7 +18,7 @@ MAILER_PASSWORD=""	# SMTP Password
 SERVER_IP="$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')"
 SSH_PORT="22"
 SERVER_LOCALE="en_US.UTF-8"
-
+GRUB_TIMEOUT=2            # GRUB Timer before choosing default OS
 
 ## DON'T CHANGE - Setup-script variables
 PACKAGES_FILE=packages.list
