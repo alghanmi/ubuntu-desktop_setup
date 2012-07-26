@@ -311,6 +311,12 @@ echo "personal-digest-preferences SHA256" >> ~/.gnupg/gpg.conf
 echo "cert-digest-algo SHA256" >> ~/.gnupg/gpg.conf
 echo "default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed" >> ~/.gnupg/gpg.conf
 
+# Refresh GPG Keys twice a month on days 1 and 15.
+crontab -u $SUPER_USER -l > $SUPER_USER.cron
+echo -e "0\t0\t1,15\t*\t*\tgpg --refresh-keys" | tee -a $SUPER_USER.cron
+crontab -u $SUPER_USER $SUPER_USER.cron
+rm $SUPER_USER.cron
+
 # Fix Ownership
 chown $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.bashrc
 chown $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.nanorc
