@@ -289,7 +289,7 @@ print_log "User specific configuration"
 print_prompt
 
 # Local & work directories
-mkdir -p /home/$SUPER_USER/work/eclipse/api
+mkdir -p /home/$SUPER_USER/work/lib
 mkdir -p /home/$SUPER_USER/.ssh
 mkdir -p /home/$SUPER_USER/svn
 mkdir -p /home/$SUPER_USER/bin
@@ -344,5 +344,5 @@ echo "allow-guest=false" | tee -a /etc/lightdm/lightdm.conf
 ##
 print_log "Repository Cache Cleanup"
 apt-get clean; apt-get autoclean; apt-get autoremove
-rmdir ~/Documents/ ~/Downloads/ ~/Music/ ~/Pictures/ ~/Public/ ~/Templates/ ~/Videos/
+rmdir ~/Documents/ ~/Music/ ~/Pictures/ ~/Public/ ~/Templates/ ~/Videos/
 rm ~/examples.desktop
