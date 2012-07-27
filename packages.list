@@ -18,6 +18,7 @@ filezilla
 
 ## Web Server
 lighttpd
+tomcat7 tomcat7-admin tomcat7-examples tomcat7-docs
 
 ## Database Server
 mysql-server mysql-client

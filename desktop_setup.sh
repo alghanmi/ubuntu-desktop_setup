@@ -262,6 +262,11 @@ service exim4 restart
 # Sending Test Email
 echo "Hello World! From $USER on $(hostname) sent to $SUPER_USER" | mail -s "Hello World from $(hostname)" $SUPER_USER
 
+## Disable Tomcat by default
+print_log "Stopping & Disabling Tomcat"
+service tomcat7 stop
+update-rc.d -f tomcat7 disable
+
 ## Secure MySQL
 print_log "Securing MySQL"
 mysql_secure_installation
