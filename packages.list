@@ -36,6 +36,7 @@ openjdk-7-jdk ant maven
 
 ## IDEs
 eclipse eclipse-cdt eclipse-jdt eclipse-jgit eclipse-xsd
+netbeans
 
 ## Software Version Contorl
 subversion subversion-tools git git-svn gitweb mercurial bzr
