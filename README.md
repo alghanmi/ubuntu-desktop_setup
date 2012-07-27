@@ -18,7 +18,7 @@ The complete list of packages to be installed are available in the `packages.lis
 + Programming Languages & Platforms: C/C++, Perl, PHP 5, Python 3, Ruby 1.9.3, Java (OpenJDK 7)
 + Version Control: Git, Subversion, Mercurial, bzr
 + Text Editors: Vim 7, Emacs 24, Gedit, Nano
-+ IDEs: Eclipse
++ IDEs: Eclipse, Netbeans
 + Disk Utilities: gParted, Zip, Rar, Ace, Wipe
 + Desktop Apps: LibreOffice, Firefox, Thunderbird, Dropbox, Shutter
 + Google Apps: Chromium, Chrome, Earth
