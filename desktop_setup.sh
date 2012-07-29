@@ -179,11 +179,11 @@ newaliases
 mkdir /home/$SUPER_USER/bin
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/bin
 # Groups
-addgroup subversion
+addgroup developers
 usermod -a -G www-data $SUPER_USER
 usermod -a -G vboxusers $SUPER_USER
-usermod -a -G subversion $SUPER_USER
-usermod -a -G subversion www-data
+usermod -a -G developers $SUPER_USER
+usermod -a -G developers www-data
 
 ##
 ## System Configuration
@@ -331,7 +331,7 @@ chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/bin
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/svn
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/src
 chown -R www-data:www-data /home/www
-chown -R www-data:subversion /home/svn
+chown -R www-data:developers /home/svn
 
 ##
 ## Desktop Preferences
