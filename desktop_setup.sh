@@ -184,10 +184,6 @@ usermod -a -G www-data $SUPER_USER
 usermod -a -G vboxusers $SUPER_USER
 usermod -a -G developers $SUPER_USER
 usermod -a -G developers www-data
-# Create Git User
-adduser git
-usermod -a -G www-data git
-usermod -a -G developers git
 
 ##
 ## System Configuration
@@ -248,7 +244,6 @@ sed -i 's/^UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
 echo "" | tee -a /etc/ssh/sshd_config
 echo "# Permit only specific users" | tee -a /etc/ssh/sshd_config
 echo "AllowUsers $SUPER_USER" | tee -a /etc/ssh/sshd_config
-echo "AllowUsers git" | tee -a /etc/ssh/sshd_config
 service ssh restart
 
 ## Email Configuration using Exim
@@ -292,6 +287,7 @@ curl https://raw.github.com/alghanmi/vps_setup/master/scripts/lighttpd-setup.sh 
 chmod 755 /home/$SUPER_USER/bin/lighttpd-setup.sh
 sh /home/$SUPER_USER/bin/lighttpd-setup.sh
 
+
 ##
 ## User Configuration Files
 ##
@@ -304,7 +300,7 @@ mkdir -p /home/$SUPER_USER/.ssh
 mkdir -p /home/$SUPER_USER/repo
 mkdir -p /home/$SUPER_USER/bin
 mkdir -p /home/$SUPER_USER/src
-mkdir -p /home/rep
+mkdir -p /home/repo
 mkdir -p /home/www
 
 # Create a local SSH config file for hosts
