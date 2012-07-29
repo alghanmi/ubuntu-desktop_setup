@@ -184,6 +184,10 @@ usermod -a -G www-data $SUPER_USER
 usermod -a -G vboxusers $SUPER_USER
 usermod -a -G developers $SUPER_USER
 usermod -a -G developers www-data
+# Create Git User
+adduser git
+usermod -a -G www-data git
+usermod -a -G developers git
 
 ##
 ## System Configuration
@@ -244,6 +248,7 @@ sed -i 's/^UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
 echo "" | tee -a /etc/ssh/sshd_config
 echo "# Permit only specific users" | tee -a /etc/ssh/sshd_config
 echo "AllowUsers $SUPER_USER" | tee -a /etc/ssh/sshd_config
+echo "AllowUsers git" | tee -a /etc/ssh/sshd_config
 service ssh restart
 
 ## Email Configuration using Exim
@@ -296,10 +301,10 @@ print_prompt
 # Local & work directories
 mkdir -p /home/$SUPER_USER/work/lib
 mkdir -p /home/$SUPER_USER/.ssh
-mkdir -p /home/$SUPER_USER/svn
+mkdir -p /home/$SUPER_USER/repo
 mkdir -p /home/$SUPER_USER/bin
 mkdir -p /home/$SUPER_USER/src
-mkdir -p /home/svn
+mkdir -p /home/rep
 mkdir -p /home/www
 
 # Create a local SSH config file for hosts
@@ -328,10 +333,10 @@ chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/work
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.ssh
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.gpg
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/bin
-chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/svn
+chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/repo
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/src
 chown -R www-data:www-data /home/www
-chown -R www-data:developers /home/svn
+chown -R www-data:developers /home/repo
 
 ##
 ## Desktop Preferences
