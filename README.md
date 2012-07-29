@@ -12,7 +12,7 @@ Applications
 The complete list of packages to be installed are available in the `packages.list` file. Here is a list with the most significant applications and packages:
 + Essential Software & Services: ssh, openssl, build-essential, binutils, sudo, ntp, screen, byobu & linux headers
 + Networking Applications: curl, traceroute, nmap, Filezilla, OpenVPN & Network Manager VPN Plugins
-+ Web Server: lighttpd
++ Web Server: lighttpd, Apache Tomcat (disabled by default)
 + Database Server & Apps: MySQL & NySQL Workbench
 + EMail MTA: Exim Light
 + Programming Languages & Platforms: C/C++, Perl, PHP 5, Python 3, Ruby 1.9.3, Java (OpenJDK 7)
@@ -21,13 +21,43 @@ The complete list of packages to be installed are available in the `packages.lis
 + IDEs: Eclipse, Netbeans
 + Disk Utilities: gParted, Zip, Rar, Ace, Wipe
 + Desktop Apps: LibreOffice, Firefox, Thunderbird, Dropbox, Shutter
-+ Google Apps: Chromium, Chrome, Earth
++ Google Apps: Chromium, Chrome, Earth, GoogleTalk Plugin
 + Graphics: Gimp, Inkscape, dia
 + PDF Support: Acrobat Reader & pdftk
 + Multimedia: ubuntu-restricted-extras, non-free-codecs, mplayer, audacity, vlc, banshee, openshot, handbrake
 + LaTeX: TeXLive, TeXMaker, Gummi & Ghost Script
 + Virtualization: Virtual Box
 
+Notable Setup Actions
+---------------------
+The following actions are performed by the script:
++ Set repositories to include:
+	* All official main, restricted, universe, multiverse, backport and extra repositories
+	* Canonical partner repositories
+	* Medibuntu
+	* Google Linux Repository
+	* Emacs 24 Snapshots PPA
+	* Virtual Box Repository
+	* Dropbox
+	* Handbrake PPA
++ Install packages in `packages.list`
++ Add `$SUPER_USER` as member of `sudo`, `adm` and `www-data` groups.
++ Create a local [shared] git user account for locally hosted git repositories
++ Set Timezone
++ Set Locale (default is `en_US.UTF-8`)
++ Set iSpell wordlist (default is American English)
++ Hostname
++ DNS (inserting [Google Public DNS](https://developers.google.com/speed/public-dns/) `8.8.8.8`, `8.8.4.4`)
++ SSH Setup
+	* Change port to non-standard port number
+	* Explicitly add inet interface to `Listen` directive
+	* Disable root login
+	* Disable password login
+	* Disable X11 forwarding
+	* Disable PAM & DNS
+	* Only allow `$SUPER_USER` to access machine via `ssh`
++ Disable *Guest Login* on greeting screen
++ Make GPG Use SHA256 instead of SHA1
 
 How to Use
 ----------
@@ -63,36 +93,19 @@ chmod 755 desktop_setup.sh
 ./desktop_setup.sh
 ```
 
+Non-Repository Applications
+---------------------------
+A number of important applications and/or platforms are not supported in the official Ubuntu repositories or in a trusted PPA. Therefore, these applications should be downloaded directly from their respective websites.
 
-Notable Setup Actions
----------------------
-The following actions are performed by the script:
-+ Set repositories to include:
-	* All official main, restricted, universe, multiverse, backport and extra repositories
-	* Canonical partner repositories
-	* Medibuntu
-	* Google Linux Repository
-	* Emacs 24 Snapshots PPA
-	* Virtual Box Repository
-	* Dropbox
-	* Handbrake PPA
-+ Install packages in `packages.list`
-+ Add `$SUPER_USER` as member of `sudo`, `adm` and `www-data` groups.
-+ Set Timezone
-+ Set Locale (default is `en_US.UTF-8`)
-+ Set iSpell wordlist (default is American English)
-+ Hostname
-+ DNS (inserting [Google Public DNS](https://developers.google.com/speed/public-dns/) `8.8.8.8`, `8.8.4.4`)
-+ SSH Setup
-	* Change port to non-standard port number
-	* Explicitly add inet interface to `Listen` directive
-	* Disable root login
-	* Disable password login
-	* Disable X11 forwarding
-	* Disable PAM & DNS
-	* Only allow `$SUPER_USER` to access machine via `ssh`
-+ Disable *Guest Login* on greeting screen
-+ Make GPG Use SHA256 instead of SHA1
+The [wiki pages](https://github.com/alghanmi/ubuntu-desktop_setup/wiki) for this repository hosts the details for installing and setting up each of these applications. Here is the list of applications:
++ [Eclipse](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Eclipse-Install-Guide)
++ [Skype](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Skype-Install-Guide)
++ [Android SDK](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Android-SDK-Install-Guide)
+
+Optional System Configurations
+------------------------------
+Some users may have application or hardware specific configuration options they would like to depoly. Here is a list of the ones I personally worked with also available through the The [wiki pages](https://github.com/alghanmi/ubuntu-desktop_setup/wiki):
++ [SSD Configuration on Linux](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/SSD-Configuration-on-Linux)
 
 Whats Next
 ----------

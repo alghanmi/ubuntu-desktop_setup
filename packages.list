@@ -36,7 +36,7 @@ php5-cgi php5-dev php5-curl php-pear
 openjdk-7-jdk ant maven
 
 ## IDEs
-eclipse eclipse-cdt eclipse-jdt eclipse-jgit eclipse-xsd
+#eclipse eclipse-cdt eclipse-jdt eclipse-jgit eclipse-xsd
 netbeans
 
 ## Software Version Contorl
