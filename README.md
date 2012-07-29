@@ -100,6 +100,7 @@ A number of important applications and/or platforms are not supported in the off
 The [wiki pages](https://github.com/alghanmi/ubuntu-desktop_setup/wiki) for this repository hosts the details for installing and setting up each of these applications. Here is the list of applications:
 + [Eclipse](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Eclipse-Install-Guide)
 + [Skype](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Skype-Install-Guide)
++ [TrueCrypt](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/TrueCrypt-Install-Guide)
 + [Android SDK](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Android-SDK-Install-Guide)
 
 Optional System Configurations
