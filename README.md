@@ -102,6 +102,7 @@ The [wiki pages](https://github.com/alghanmi/ubuntu-desktop_setup/wiki) for this
 + [Skype](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Skype-Install-Guide)
 + [TrueCrypt](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/TrueCrypt-Install-Guide)
 + [Android SDK](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Android-SDK-Install-Guide)
++ [Hulu Desktop](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Hulu-Desktop-Install-Guide)
 
 Optional System Configurations
 ------------------------------
