@@ -298,10 +298,8 @@ print_prompt
 # Local & work directories
 mkdir -p /home/$SUPER_USER/work/lib
 mkdir -p /home/$SUPER_USER/.ssh
-mkdir -p /home/$SUPER_USER/repo
 mkdir -p /home/$SUPER_USER/bin
 mkdir -p /home/$SUPER_USER/src
-mkdir -p /home/repo
 mkdir -p /home/www
 
 # Create a local SSH config file for hosts
@@ -330,10 +328,8 @@ chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/work
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.ssh
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.gpg
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/bin
-chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/repo
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/src
 chown -R www-data:www-data /home/www
-chown -R www-data:developers /home/repo
 
 ##
 ## Desktop Preferences
