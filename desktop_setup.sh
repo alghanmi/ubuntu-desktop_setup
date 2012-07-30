@@ -212,10 +212,11 @@ select-default-wordlist
 print_log "Updating alernatives"
 ln -sf /bin/bash /bin/sh
 update-alternatives --config editor
-update-alternatives --config java
 update-alternatives --config x-www-browser
 update-alternatives --config ruby
 update-alternatives --config gem
+# Update java alternatives to use latest installed jdk
+update-java-alternatives -s $(update-java-alternatives -l | tail -1 | awk '{ print $1 }')
 
 ## Hardware Sensors
 print_log "Detect Hardware Sensors - Add Modules to /etc/modules"
