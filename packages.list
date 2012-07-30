@@ -33,7 +33,7 @@ perl
 python3
 ruby1.9.1-full
 php5-cgi php5-dev php5-curl php-pear
-openjdk-7-jdk ant maven
+openjdk-7-jdk icedtea-7-plugin ant maven
 
 ## IDEs
 #eclipse eclipse-cdt eclipse-jdt eclipse-jgit eclipse-xsd
