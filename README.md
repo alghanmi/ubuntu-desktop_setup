@@ -108,6 +108,7 @@ Optional System Configurations
 ------------------------------
 Some users may have application or hardware specific configuration options they would like to depoly. Here is a list of the ones I personally worked with also available through the The [wiki pages](https://github.com/alghanmi/ubuntu-desktop_setup/wiki):
 + [SSD Configuration on Linux](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/SSD-Configuration-on-Linux)
++ [Git Server with Web Interface](https://github.com/alghanmi/ubuntu-desktop_setup/wiki/Git-Local-Repository-Setup-Guide)
 
 Whats Next
 ----------
