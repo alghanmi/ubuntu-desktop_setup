@@ -128,6 +128,10 @@ echo "deb-src http://ppa.launchpad.net/motumedia/mplayer-daily/ubuntu $(lsb_rele
 echo "# Handbrake" | tee /etc/apt/sources.list.d/handbrake.list
 echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/handbrake.list
 echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/handbrake.list
+# Ubuntu-X X-Updates
+echo "# Ubuntu-X X-Updates" | tee /etc/apt/sources.list.d/x-updates.list
+echo "deb http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/x-updates.list
+echo "deb-src http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/x-updates.list
 
 ## External Repository Keys
 wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | apt-key add -
@@ -138,6 +142,7 @@ apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5 #Chromium PPA
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5044912E #Dropbox
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 06438B87 #MPlayer
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 816950D8 #Handbrake
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com AF1CDFA9 #Ubuntu-X X-Updates
 
 ## Update system
 print_log "Package update"
