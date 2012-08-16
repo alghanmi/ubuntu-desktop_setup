@@ -87,8 +87,8 @@ virtualbox-4.1 dkms
 wine
 
 ## Multimedia
-ubuntu-restricted-extras non-free-codecs lib32asound2
-libdvdcss2 vorbis-tools lame
+ubuntu-restricted-extras non-free-codecs ffmpeg lib32asound2
+libdvdcss2 gstreamer-tools vorbis-tools flac faac lame
 mplayer mencoder audacity
 vlc browser-plugin-vlc vlc-plugin-pulse
 banshee banshee-community-extensions
