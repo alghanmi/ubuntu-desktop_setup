@@ -83,7 +83,7 @@ ttf-liberation ttf-ubuntu-font-family ttf-mscorefonts-installer ttf-arabeyes
 xfonts-75dpi xfonts-100dpi
 
 ## Virtualization & Emulators
-virtualbox-4.1 dkms
+virtualbox-4.2 dkms
 wine
 
 ## Multimedia
