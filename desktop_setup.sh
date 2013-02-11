@@ -100,6 +100,10 @@ echo "deb http://extras.ubuntu.com/ubuntu $(lsb_release -cs) main" | tee -a /etc
 echo "deb-src http://extras.ubuntu.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list
 
 ## External Repositories
+# Git
+echo "# Git PPA" | tee /etc/apt/sources.list.d/git.list
+echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/git.list
+echo "deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/git.list
 # Emacs24
 echo "# Emacs24 Snapshot PPA" | tee /etc/apt/sources.list.d/emacs.list
 echo "deb http://ppa.launchpad.net/cassou/emacs/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/emacs.list
@@ -137,6 +141,7 @@ echo "deb-src http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu $(lsb_rele
 wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | apt-key add -
 wget -q https://dl-ssl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E1DF1F24 #Git
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com CEC45805 #Emacs24
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5 #Chromium PPA
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5044912E #Dropbox
