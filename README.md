@@ -13,7 +13,7 @@ The complete list of packages to be installed are available in the `packages.lis
 + Essential Software & Services: ssh, openssl, build-essential, binutils, sudo, ntp, screen, byobu & linux headers
 + Networking Applications: curl, traceroute, nmap, Filezilla, OpenVPN & Network Manager VPN Plugins
 + Web Server: lighttpd, Apache Tomcat (disabled by default)
-+ Database Server & Apps: MySQL & NySQL Workbench
++ Database Server & Apps: MySQL & MySQL Workbench
 + EMail MTA: Exim Light
 + Programming Languages & Platforms: C/C++, Perl, PHP 5, Python 3, Ruby 1.9.3, Java (OpenJDK 7)
 + Version Control: Git, Subversion, Mercurial, bzr
