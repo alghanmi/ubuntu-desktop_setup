@@ -164,9 +164,9 @@ sed '/^\#/d;/^$/d' $PACKAGES_FILE | tr '\n' ' ' >> $PACKAGES_SCRIPT
 chmod 755 $PACKAGES_SCRIPT
 sh $PACKAGES_SCRIPT
 rm $PACKAGES_SCRIPT $PACKAGES_FILE
-rm /etc/apt/sources.list.d/google-chrome.list
-rm /etc/apt/sources.list.d/google-talkplugin.list
-rm /etc/apt/sources.list.d/google-earth.list
+rm -f /etc/apt/sources.list.d/google-chrome.list
+rm -f /etc/apt/sources.list.d/google-talkplugin.list
+rm -f /etc/apt/sources.list.d/google-earth.list
 
 ##
 ## SuperUser Setup
