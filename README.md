@@ -34,7 +34,7 @@ The following actions are performed by the script:
 + Set repositories to include:
 	* All official main, restricted, universe, multiverse, backport and extra repositories
 	* Canonical partner repositories
-	* Medibuntu
+	* VideoLan (for dvd playback)
 	* Google Linux Repository
 	* Emacs 24 Snapshots PPA
 	* Virtual Box Repository
