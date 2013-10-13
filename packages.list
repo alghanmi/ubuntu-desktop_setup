@@ -75,7 +75,7 @@ community-themes
 xmedcon
 
 ## Acrobat Reader & PDF Stuff
-acroread acroread-fonts 
+acroread
 pdftk pdfedit cups-pdf
 
 ## Fonts
@@ -87,7 +87,7 @@ virtualbox-4.2 dkms
 wine
 
 ## Multimedia
-ubuntu-restricted-extras non-free-codecs ffmpeg lib32asound2
+ubuntu-restricted-extras ffmpeg lib32asound2
 libdvdcss2 gstreamer-tools vorbis-tools flac faac lame
 mplayer mencoder audacity
 vlc browser-plugin-vlc vlc-plugin-pulse
