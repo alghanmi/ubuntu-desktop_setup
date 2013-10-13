@@ -108,8 +108,10 @@ echo "deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu $(lsb_release -cs) ma
 echo "# Emacs24 Snapshot PPA" | tee /etc/apt/sources.list.d/emacs.list
 echo "deb http://ppa.launchpad.net/cassou/emacs/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/emacs.list
 echo "deb-src http://ppa.launchpad.net/cassou/emacs/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/emacs.list
-# Medibuntu
-wget -q http://www.medibuntu.org/sources.list.d/$(lsb_release -cs).list -O- | tee /etc/apt/sources.list.d/medibuntu.list 
+# VideoLan for libdvdcss
+echo "#VideoLan" | tee /etc/apt/sources.list.d/videolan.list
+echo "deb http://download.videolan.org/pub/debian/stable/ /" | tee -a /etc/apt/sources.list.d/videolan.list
+echo "deb-src http://download.videolan.org/pub/debian/stable/ /" | tee -a /etc/apt/sources.list.d/videolan.list
 # Google Chrome, Chromium, Talk Plugin
 echo "# Google software repository" | tee /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
@@ -138,7 +140,7 @@ echo "deb http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu $(lsb_release 
 echo "deb-src http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/x-updates.list
 
 ## External Repository Keys
-wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | apt-key add -
+wget -q http://download.videolan.org/pub/debian/videolan-apt.asc -O- | apt-key add -
 wget -q https://dl-ssl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E1DF1F24 #Git
