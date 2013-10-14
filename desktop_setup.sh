@@ -315,17 +315,18 @@ mkdir -p /home/$SUPER_USER/src
 mkdir -p /home/www
 
 # Create a local SSH config file for hosts
+mkdir /home/$SUPER_USER/.ssh
 touch /home/$SUPER_USER/.ssh/authorized_keys
 chmod 600 /home/$SUPER_USER/.ssh/authorized_keys
 chmod 700 /home/$SUPER_USER/.ssh
 
 # Make GnuPG to use SHA2 in preference to SHA1
-gpg --list-keys &> /dev/null
-echo "" >> ~/.gnupg/gpg.conf
-echo "# Use SHA2 in preference to SHA1" >> ~/.gnupg/gpg.conf
-echo "personal-digest-preferences SHA256" >> ~/.gnupg/gpg.conf
-echo "cert-digest-algo SHA256" >> ~/.gnupg/gpg.conf
-echo "default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed" >> ~/.gnupg/gpg.conf
+su - $SUPER_USER -c 'gpg --list-keys &> /dev/null'
+echo "" | tee -a /home/$SUPER_USER/.gnupg/gpg.conf
+echo "# Use SHA2 in preference to SHA1" | tee -a /home/$SUPER_USER/.gnupg/gpg.conf
+echo "personal-digest-preferences SHA256" | tee -a /home/$SUPER_USER/.gnupg/gpg.conf
+echo "cert-digest-algo SHA256" | tee -a /home/$SUPER_USER/.gnupg/gpg.conf
+echo "default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed" | tee -a /home/$SUPER_USER/.gnupg/gpg.conf
 
 # Refresh GPG Keys twice a month on days 1 and 15.
 crontab -u $SUPER_USER -l > $SUPER_USER.cron
@@ -333,12 +334,15 @@ echo -e "0\t0\t1,15\t*\t*\tgpg --refresh-keys" | tee -a $SUPER_USER.cron
 crontab -u $SUPER_USER $SUPER_USER.cron
 rm $SUPER_USER.cron
 
+#nano editor configuration files
+find /usr/share/nano/ -name "*.nanorc" -print | sed -e 's/^\(.*\)$/include "\1"/g' >> /home/$SUPER_USER/.nanorc
+
 # Fix Ownership
 chown $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.bashrc
 chown $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.nanorc
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/work
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.ssh
-chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.gpg
+chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/.gnupg
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/bin
 chown -R $SUPER_USER:$SUPER_USER /home/$SUPER_USER/src
 chown -R www-data:www-data /home/www
