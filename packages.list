@@ -4,7 +4,7 @@
 
 ## Libraries, Software & Development Essentials
 ssh openssh-server openssl
-build-essential binutils
+build-essential binutils aptitude
 linux-headers-`uname -r` linux-headers-generic
 screen byobu
 
@@ -59,7 +59,8 @@ unzip zip unrar unace p7zip par2 wipe
 gparted syslinux sshfs mtools mtp-tools mtpfs foremost
 
 ## Desktop Tools
-nautilus-dropbox nautilus-scripts-manager nautilus-open-terminal python-gpgme
+dropbox
+nautilus-scripts-manager nautilus-open-terminal python-gpgme
 compizconfig-settings-manager
 shutter
 
