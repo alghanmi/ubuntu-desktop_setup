@@ -6,7 +6,7 @@
 ssh openssh-server openssl
 build-essential binutils aptitude
 linux-headers-`uname -r` linux-headers-generic
-screen byobu
+screen tmux
 
 ## System tools
 sudo ntp lm-sensors
@@ -47,6 +47,7 @@ vim-gtk vim-scripts vim-latexsuite
 emacs-snapshot-common emacs-snapshot-bin-common emacs-snapshot-el emacs-snapshot-gtk emacs-snapshot
 gedit-plugins gedit-developer-plugins gedit-latex-plugin
 nano enscript highlight astyle colordiff diffstat meld xml-twig-tools
+xsel
 
 ## Language Related Packages
 locales
