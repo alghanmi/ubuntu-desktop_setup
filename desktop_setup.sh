@@ -201,6 +201,11 @@ usermod -a -G developers www-data
 ## System Configuration
 ##
 
+# Install Inconsolata font (and variants)
+mkdir -p /usr/share/fonts/opentype
+curl --silent http://www.levien.com/type/myfonts/Inconsolata.otf -o /usr/share/fonts/opentype/Inconsolata.otf
+curl --silent http://media.nodnod.net/Inconsolata-dz.otf.zip | zcat  > /usr/share/fonts/opentype/Inconsolata-dz.otf
+
 # Font Cache
 print_log "Font Cache"
 fc-cache -fv
