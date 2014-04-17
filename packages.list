@@ -9,7 +9,7 @@ linux-headers-`uname -r` linux-headers-generic
 screen tmux
 
 ## System tools
-sudo ntp lm-sensors
+sudo ntp lm-sensors htop
 
 ## Networking Applications
 traceroute curl nmap dnsutils
