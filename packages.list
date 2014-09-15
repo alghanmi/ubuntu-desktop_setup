@@ -4,7 +4,8 @@
 
 ## Libraries, Software & Development Essentials
 ssh openssh-server openssl
-build-essential binutils aptitude
+build-essential binutils libtool
+aptitude lsb-release
 linux-headers-`uname -r` linux-headers-generic
 screen tmux
 
@@ -13,40 +14,41 @@ sudo ntp lm-sensors htop
 
 ## Networking Applications
 traceroute curl nmap dnsutils
-vpnc network-manager-vpnc network-manager-openvpn
 filezilla
 
 ## Web Server
-lighttpd
+nginx
 tomcat7 tomcat7-admin tomcat7-examples tomcat7-docs
 
-## Database Server
-mysql-server mysql-client
-mysql-workbench
+## Database Servers
+mysql-server mysql-client mysql-workbench mysql-utilities
+mongodb mongodb-clients
 
 ## Email
 exim4-daemon-light
 
 ## Programming Languages & Platforms
-gdb colorgcc
+gcc gdb colorgcc
 perl
-python3
-ruby1.9.1-full
+python python-dev python3 python3-dev
+ruby-full ruby-all-dev
+golang
 php5-cgi php5-dev php5-curl php-pear
-openjdk-7-jdk icedtea-7-plugin ant maven
+openjdk-7-jdk icedtea-plugin icedtea-netx ant maven
 
 ## IDEs
-#eclipse eclipse-cdt eclipse-jdt eclipse-jgit eclipse-xsd
-netbeans
+#None
 
 ## Software Version Contorl
-subversion subversion-tools git git-svn gitweb mercurial bzr
+git-all git-annex
+subversion subversion-tools
+mercurial bzr
 
 ## Text Editors, Text/Markup Related Scripts
 vim-gtk vim-scripts vim-latexsuite
-emacs-snapshot-common emacs-snapshot-bin-common emacs-snapshot-el emacs-snapshot-gtk emacs-snapshot
+emacs emacs-goodies-el emacs-intl-fonts
 gedit-plugins gedit-developer-plugins gedit-latex-plugin
-nano enscript highlight astyle colordiff diffstat meld xml-twig-tools
+nano enscript highlight astyle colordiff diffstat meld xml-twig-tools libjson-pp-perl
 xsel
 
 ## Language Related Packages
@@ -54,51 +56,56 @@ locales
 iamerican wamerican ispell
 
 ## Helpful Applications
-unzip zip unrar unace p7zip par2 wipe
+unzip zip unrar unace p7zip-full p7zip-rar par2
+wipe bleachbit
 
-## Disk Utilities
+## Disk & File System Utilities
 gparted syslinux sshfs mtools mtp-tools mtpfs foremost
 
 ## Desktop Tools
 dropbox
-nautilus-scripts-manager nautilus-open-terminal python-gpgme
-compizconfig-settings-manager
+compiz-plugins compizconfig-settings-manager
 shutter
 
 ## Desktop & Internet Applications
-google-chrome-stable google-talkplugin chromium-browser chromium-codecs-ffmpeg
-google-earth-stable lynx
-thunderbird xchat xchat-indicator
+libreoffice libreoffice-pdfimport
+google-chrome-stable google-talkplugin lynx
+chromium-browser chromium-codecs-ffmpeg-extra webaccounts-chromium-extension unity-chromium-extension
+google-earth-stable
+thunderbird
+xchat xchat-indicator
 gpodder
 
-## Diagrams, Drawing & Graphics
-gimp gimp-data-extras gimp-plugin-registry inkscape dia
+## Diagrams, Drawing, Graphics and Photos
+gimp gimp-data-extras gimp-plugin-registry
+inkscape dia
+darktable
 community-themes
 xmedcon
 
-## Acrobat Reader & PDF Stuff
-acroread
-pdftk pdfedit cups-pdf
+## Acrobat Reader [not available] & PDF Stuff
+#acroread
+pdftk cups-pdf
 
 ## Fonts
-ttf-liberation ttf-ubuntu-font-family ttf-mscorefonts-installer ttf-arabeyes
+fonts-liberation fonts-arabeyes ttf-ubuntu-font-family ttf-mscorefonts-installer
 xfonts-75dpi xfonts-100dpi
 
 ## Virtualization & Emulators
-virtualbox-4.2 dkms
-wine
+virtualbox-4.3 dkms
+wine winetricks
 
 ## Multimedia
-ubuntu-restricted-extras ffmpeg lib32asound2
-libdvdcss2 gstreamer-tools vorbis-tools flac faac lame
-mplayer mencoder audacity
+ubuntu-restricted-extras ubuntu-restricted-addons libav-tools
+libasound2 libasound2-plugins libasound2-plugins-extra
+libdvdcss2 libdvdread4 libdvdnav4 gstreamer-tools
+vorbis-tools flac faac faad sox lame libmpeg2-4 mpeg3-utils uudeview
+mplayer mplayer-fonts mencoder audacity
 vlc browser-plugin-vlc vlc-plugin-pulse
-banshee banshee-community-extensions
 easytag id3v2
 openshot
-handbrake-gtk handbrake-cli
+handbrake
 
 ## LaTeX & Friends (if needed)
-texlive texlive-extra-utils texlive-latex-extra texlive-science
-texi2html chktex latex2html latex2rtf ghostscript ghostscript-x ps2eps
-texmaker gummi
+texlive-full latex2html latex2rtf ghostscript ghostscript-x ps2eps
+texmaker

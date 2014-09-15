@@ -1,32 +1,50 @@
-Ubuntu Desktop Setup & Configuration Script
-===========================================
-As a personal preference, I use the latest [Ubuntu](http://www.ubuntu.com/) [Long Term Support (LTS)](https://wiki.ubuntu.com/LTS) distribution for my desktop environemnt. Since I reproduce this environment on multiple machines (desktop, laptop, work, etc), it is only obvious to automate the process. This setup has been tested on [Ubuntu 12.04 LTS (Precise Pangolin)](http://releases.ubuntu.com/precise/)
+#Ubuntu Desktop Setup & Configuration Script
+As a personal preference, I use the latest [Ubuntu](http://www.ubuntu.com/) [Long Term Support (LTS)](https://wiki.ubuntu.com/LTS) distribution for my desktop environemnt. Since I reproduce this environment on multiple machines (desktop, laptop, work, etc), it is only obvious to automate the process. This setup has been tested on [Ubuntu 14.04 LTS (Trusty Tahr)](http://releases.ubuntu.com/trusty/)
 
 The goal is to setup a full-fledged workstation with applications for development, office productivity, basic photo/audio/video editing and entertainment.
 
 [Canonical](http://www.canonical.com/) does not implement a great deal of changes between LTS releases in the Ubuntu environment. Therefore, you can use this configuration script with any recent release with minimum to no changes.
 
+##TO Check
+  1. Check the status of OpenVPN & Network Manager VPN Plugins
+  1. https://help.ubuntu.com/community/AcrobatHowTo
+  1. http://howtoubuntu.org/things-to-do-after-installing-ubuntu-14-04-trusty-tahr
+```
+vpnc network-manager-vpnc network-manager-openvpn
+```
+  1. Ruby version
+  1. Dropbox PPA
+
+##PPAs
+ppa:nginx/stable
+ppa:libreoffice/ppa
+ppa:stebbins/handbrake-releases
+ppa:gnome3-team/gnome3
+ppa:ubuntu-x-swat/x-updates #Disabled
+
+
 
 Applications
 ------------
 The complete list of packages to be installed are available in the `packages.list` file. Here is a list with the most significant applications and packages:
-+ Essential Software & Services: ssh, openssl, build-essential, binutils, sudo, ntp, screen, byobu & linux headers
-+ Networking Applications: curl, traceroute, nmap, Filezilla, OpenVPN & Network Manager VPN Plugins
-+ Web Server: lighttpd, Apache Tomcat (disabled by default)
-+ Database Server & Apps: MySQL & MySQL Workbench
-+ EMail MTA: Exim Light
-+ Programming Languages & Platforms: C/C++, Perl, PHP 5, Python 3, Ruby 1.9.3, Java (OpenJDK 7)
-+ Version Control: Git, Subversion, Mercurial, bzr
-+ Text Editors: Vim 7, Emacs 24, Gedit, Nano
-+ IDEs: Eclipse, Netbeans
-+ Disk Utilities: gParted, Zip, Rar, Ace, Wipe
-+ Desktop Apps: LibreOffice, Firefox, Thunderbird, Dropbox, Shutter
-+ Google Apps: Chromium, Chrome, Earth, GoogleTalk Plugin
-+ Graphics: Gimp, Inkscape, dia
-+ PDF Support: Acrobat Reader & pdftk
-+ Multimedia: ubuntu-restricted-extras, non-free-codecs, mplayer, audacity, vlc, banshee, openshot, handbrake
-+ LaTeX: TeXLive, TeXMaker, Gummi & Ghost Script
-+ Virtualization: Virtual Box
+  + Essential Software & Services: ssh, openssl, build-essential, binutils, sudo, ntp, htop, screen, tmux & linux headers
+  + Networking Applications: curl, traceroute, nmap, Filezilla
+  + Web Server: nginx, Apache Tomcat (disabled by default)
+  + Database Server & Apps: MySQL, MySQL Workbench & MongoDB
+  + EMail MTA: Exim Light
+  + Programming Languages & Platforms: C/C++, Perl, PHP 5, Python 2.7, Python 3, Ruby, Java (OpenJDK 7)
+  + Version Control: Git, Subversion, Mercurial, bzr
+  + Text Editors: Vim 7, Emacs, Gedit, Nano
+  + IDEs: None (both [Eclipse](http://www.eclipse.org/), [Netbeans](https://netbeans.org/) are out of date in the official repos)
+  + Disk Utilities: gParted, Zip, Rar, Ace, Wipe
+  + Desktop Apps: LibreOffice, Firefox, Thunderbird, Dropbox, Shutter
+  + Google Apps: Chromium, Chrome, Earth
+  + Graphics & Photo: Gimp, Inkscape, dia, darktable
+  + PDF Support: pdftk
+  + Multimedia: ubuntu-restricted-extras et. al., mplayer, audacity, vlc, banshee, openshot, handbrake
+  + LaTeX: TeXLive, TeXMaker, Ghost Script
+  + Virtualization: Virtual Box
+  + Fonts: liberation, arabeyes, ubuntu and MS fonts. Also the script installs Inconsolata & Inconsolata-dz.
 
 Notable Setup Actions
 ---------------------
@@ -34,12 +52,14 @@ The following actions are performed by the script:
 + Set repositories to include:
 	* All official main, restricted, universe, multiverse, backport and extra repositories
 	* Canonical partner repositories
+	* GNOME 3 PPA &ndash; 14.04LTS was shipped with an outdated GNOME
+	* NginX PPA
 	* VideoLan (for dvd playback)
 	* Google Linux Repository
-	* Emacs 24 Snapshots PPA
 	* Virtual Box Repository
 	* Dropbox
-	* Handbrake PPA
+	* [**disabled**] Ubuntu X Team Updates
+	* [**disabled**] Handbrake PPA
 + Install packages in `packages.list`
 + Add `$SUPER_USER` as member of `sudo`, `adm` and `www-data` groups.
 + Create a local [shared] git user account for locally hosted git repositories
@@ -116,6 +136,11 @@ The following items are a kind of TODO list of what I should add to this script
 + GUI Preferences: the list of changes to the machine that can not be done with the command line
 + Incorporate configuration from my [dotfiles repository](https://github.com/alghanmi/dotfiles.conf)
 
+
+Whats Missing
+-------------
+
+  + Adobe Acrobat 9 reached end of life, as such it was removed from the repository.
 
 License
 -------

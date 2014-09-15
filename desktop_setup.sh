@@ -1,5 +1,11 @@
 #!/bin/bash
 
+## Force to run as root
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
 ## Load a configuration file if exists
 load_conf_file() {
 	ready=0
@@ -100,56 +106,41 @@ echo "deb http://extras.ubuntu.com/ubuntu $(lsb_release -cs) main" | tee -a /etc
 echo "deb-src http://extras.ubuntu.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list
 
 ## External Repositories
-# Git
-echo "# Git PPA" | tee /etc/apt/sources.list.d/git.list
-echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/git.list
-echo "deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/git.list
-# Emacs24
-echo "# Emacs24 Snapshot PPA" | tee /etc/apt/sources.list.d/emacs.list
-echo "deb http://ppa.launchpad.net/cassou/emacs/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/emacs.list
-echo "deb-src http://ppa.launchpad.net/cassou/emacs/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/emacs.list
+# Ubuntu Repositories are outdated
+add-apt-repository ppa:gnome3-team/gnome3
+# LibreOffice PPA (More Updates)
+add-apt-repository -y ppa:libreoffice/ppa
+# NginX PPA
+add-apt-repository -y ppa:nginx/stable
+# Handbrake (Video Transcoding) [disabled because no trusty package]
+#add-apt-repository -y ppa:stebbins/handbrake-releases
+# Ubuntu X Team PPA Updates [disabled until proved needed]
+#add-apt-repository -y ppa:ubuntu-x-swat/x-updates
 # VideoLan for libdvdcss
 echo "#VideoLan" | tee /etc/apt/sources.list.d/videolan.list
 echo "deb http://download.videolan.org/pub/debian/stable/ /" | tee -a /etc/apt/sources.list.d/videolan.list
 echo "deb-src http://download.videolan.org/pub/debian/stable/ /" | tee -a /etc/apt/sources.list.d/videolan.list
+wget -O - http://download.videolan.org/pub/debian/videolan-apt.asc|sudo apt-key add -
+# Virtual Box
+echo "# VirtualBox Repository" | tee -a /etc/apt/sources.list.d/virtualbox.list
+echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | tee -a /etc/apt/sources.list.d/virtualbox.list
+wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+# Dropbox
+echo "# Dropbox" | tee /etc/apt/sources.list.d/dropbox.list
+echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/dropbox.list
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5044912E #Dropbox
+
+
+
 # Google Chrome, Chromium, Talk Plugin
 echo "# Google software repository" | tee /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/earth/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
 echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" | tee -a /etc/apt/sources.list.d/google.list
-echo "deb http://ppa.launchpad.net/chromium-daily/stable/ubuntu $(lsb_release -cs) main " | tee -a /etc/apt/sources.list.d/google.list
-echo "deb-src http://ppa.launchpad.net/chromium-daily/stable/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/google.list
-# Virtual Box
-echo "# VirtualBox Repository" | tee -a /etc/apt/sources.list.d/virtualbox.list
-echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | tee -a /etc/apt/sources.list.d/virtualbox.list
-# Dropbox
-echo "# Dropbox" | tee /etc/apt/sources.list.d/dropbox.list
-echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/dropbox.list
-# MPlayer
-echo "# MPlayer" | tee /etc/apt/sources.list.d/mplayer.list
-echo "deb http://ppa.launchpad.net/motumedia/mplayer-daily/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/mplayer.list
-echo "deb-src http://ppa.launchpad.net/motumedia/mplayer-daily/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/mplayer.list
-# Handbrake
-echo "# Handbrake" | tee /etc/apt/sources.list.d/handbrake.list
-echo "deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/handbrake.list
-echo "deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/handbrake.list
-# Ubuntu-X X-Updates
-echo "# Ubuntu-X X-Updates" | tee /etc/apt/sources.list.d/x-updates.list
-echo "deb http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/x-updates.list
-echo "deb-src http://ppa.launchpad.net/ubuntu-x-swat/x-updates/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/x-updates.list
-
-## External Repository Keys
-wget -q http://download.videolan.org/pub/debian/videolan-apt.asc -O- | apt-key add -
 wget -q https://dl-ssl.google.com/linux/linux_signing_key.pub -O- | apt-key add -
-wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E1DF1F24 #Git
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com CEC45805 #Emacs24
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5 #Chromium PPA
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5044912E #Dropbox
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 06438B87 #MPlayer
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 816950D8 #Handbrake
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com AF1CDFA9 #Ubuntu-X X-Updates
+
+
 
 ## Update system
 print_log "Package update"
@@ -312,6 +303,13 @@ sh /home/$SUPER_USER/bin/lighttpd-setup.sh
 print_log "User specific configuration"
 print_prompt
 
+# Remove privacy issues & ads from Ubuntu
+wget -q -O - https://fixubuntu.com/fixubuntu.sh | bash
+gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
+
+# View active username in panel
+gsettings set com.canonical.indicator.session show-real-name-on-panel true
+
 # Local & work directories
 mkdir -p /home/$SUPER_USER/work/lib
 mkdir -p /home/$SUPER_USER/.ssh
@@ -359,7 +357,8 @@ print_log "Desktop Preferences"
 print_prompt
 
 # Disable Guest Login
-cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.default
+touch /etc/lightdm/lightdm.conf
+echo "greeter-show-remote-login=false" | tee -a /etc/lightdm/lightdm.conf
 echo "allow-guest=false" | tee -a /etc/lightdm/lightdm.conf
 
 
@@ -367,6 +366,6 @@ echo "allow-guest=false" | tee -a /etc/lightdm/lightdm.conf
 ## Clean-up
 ##
 print_log "Repository Cache Cleanup"
-apt-get clean; apt-get autoclean; apt-get autoremove
+apt-get -f install; apt-get clean; apt-get autoclean; apt-get autoremove
 rmdir ~/Documents/ ~/Music/ ~/Pictures/ ~/Public/ ~/Templates/ ~/Videos/
 rm ~/examples.desktop
