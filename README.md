@@ -15,13 +15,14 @@ vpnc network-manager-vpnc network-manager-openvpn
   1. Ruby version
   1. Dropbox PPA
 
-##PPAs
-ppa:nginx/stable
-ppa:libreoffice/ppa
-ppa:stebbins/handbrake-releases
-ppa:gnome3-team/gnome3
-ppa:ubuntu-x-swat/x-updates #Disabled
-
+##PPAs & External Repositories
+  + ppa:git-core/ppa
+  + ppa:nginx/stable
+  + ppa:libreoffice/ppa
+  + ppa:stebbins/handbrake-releases &ndash; disabled since [ubuntu official repos](http://packages.ubuntu.com/search?keywords=handbrake have latest version
+  + ppa:gnome3-team/gnome3
+  + [MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/)
+  + [RabbitMQ](http://www.rabbitmq.com/install-debian.html)
 
 
 Applications
@@ -31,6 +32,7 @@ The complete list of packages to be installed are available in the `packages.lis
   + Networking Applications: curl, traceroute, nmap, Filezilla
   + Web Server: nginx, Apache Tomcat (disabled by default)
   + Database Server & Apps: MySQL, MySQL Workbench & MongoDB
+  + Application Message Broker: RabbitMQ
   + EMail MTA: Exim Light
   + Programming Languages & Platforms: C/C++, Perl, PHP 5, Python 2.7, Python 3, Ruby, Java (OpenJDK 7)
   + Version Control: Git, Subversion, Mercurial, bzr
@@ -54,6 +56,9 @@ The following actions are performed by the script:
 	* Canonical partner repositories
 	* GNOME 3 PPA &ndash; 14.04LTS was shipped with an outdated GNOME
 	* NginX PPA
+    * Git PPA
+    * MongoDB Repository
+    * RabbitMQ Repository
 	* VideoLan (for dvd playback)
 	* Google Linux Repository
 	* Virtual Box Repository

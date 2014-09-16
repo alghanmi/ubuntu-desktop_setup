@@ -108,29 +108,47 @@ echo "deb-src http://extras.ubuntu.com/ubuntu $(lsb_release -cs) main" | tee -a 
 ## External Repositories
 # Ubuntu Repositories are outdated
 add-apt-repository ppa:gnome3-team/gnome3
+
 # LibreOffice PPA (More Updates)
 add-apt-repository -y ppa:libreoffice/ppa
+
 # NginX PPA
 add-apt-repository -y ppa:nginx/stable
-# Handbrake (Video Transcoding) [disabled because no trusty package]
-#add-apt-repository -y ppa:stebbins/handbrake-releases
-# Ubuntu X Team PPA Updates [disabled until proved needed]
-#add-apt-repository -y ppa:ubuntu-x-swat/x-updates
+
+# Git PPA
+add-apt-repository -y ppa:git-core/ppa
+
+# MongoDB
+echo "#MongoDB" | tee /etc/apt/sources.list.d/mongo-db.list
+echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | tee -a /etc/apt/sources.list.d/mongo-db.list
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 #MongoDB
+
+#RabbitMQ
+echo "#RabbitMQ" | tee /etc/apt/sources.list.d/rabbitmq.list
+echo "deb http://www.rabbitmq.com/debian/ testing main" | tee -a /etc/apt/sources.list.d/rabbitmq.list
+wget -q http://www.rabbitmq.com/rabbitmq-signing-key-public.asc -O- | sudo apt-key add -
+
 # VideoLan for libdvdcss
 echo "#VideoLan" | tee /etc/apt/sources.list.d/videolan.list
 echo "deb http://download.videolan.org/pub/debian/stable/ /" | tee -a /etc/apt/sources.list.d/videolan.list
 echo "deb-src http://download.videolan.org/pub/debian/stable/ /" | tee -a /etc/apt/sources.list.d/videolan.list
 wget -O - http://download.videolan.org/pub/debian/videolan-apt.asc|sudo apt-key add -
+
 # Virtual Box
 echo "# VirtualBox Repository" | tee -a /etc/apt/sources.list.d/virtualbox.list
 echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | tee -a /etc/apt/sources.list.d/virtualbox.list
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+
 # Dropbox
 echo "# Dropbox" | tee /etc/apt/sources.list.d/dropbox.list
 echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/dropbox.list
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5044912E #Dropbox
+apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 5044912E #Dropbox
 
+# Handbrake (Video Transcoding) [disabled because no trusty package]
+#add-apt-repository -y ppa:stebbins/handbrake-releases
 
+# Ubuntu X Team PPA Updates [disabled until proved needed]
+#add-apt-repository -y ppa:ubuntu-x-swat/x-updates
 
 # Google Chrome, Chromium, Talk Plugin
 echo "# Google software repository" | tee /etc/apt/sources.list.d/google.list
@@ -155,6 +173,13 @@ sed '/^\#/d;/^$/d' $PACKAGES_FILE | tr '\n' ' ' >> $PACKAGES_SCRIPT
 chmod 755 $PACKAGES_SCRIPT
 sh $PACKAGES_SCRIPT
 rm $PACKAGES_SCRIPT $PACKAGES_FILE
+
+#Install Google Earth
+wget -O google-earth-stable.deb http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb
+dpkg -i google-earth-stable.deb
+rm google-earth-stable.deb
+
+#Clean-Up
 rm -f /etc/apt/sources.list.d/google-chrome.list
 rm -f /etc/apt/sources.list.d/google-talkplugin.list
 rm -f /etc/apt/sources.list.d/google-earth.list
@@ -169,9 +194,9 @@ usermod -a -G sudo $SUPER_USER
 usermod -a -G adm $SUPER_USER
 usermod -a -G www-data $SUPER_USER
 
-## GRUB TIMEOUT
-sed -i "s/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=$GRUB_TIMEOUT/" /etc/default/grub
-update-grub
+## GRUB TIMEOUT -- seems to be unnecessery
+#sed -i "s/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=$GRUB_TIMEOUT/" /etc/default/grub
+#update-grub
 
 ## Mail Aliases
 echo "root: root,$SUPPORT_EMAIL" | tee -a /etc/aliases
@@ -357,9 +382,10 @@ print_log "Desktop Preferences"
 print_prompt
 
 # Disable Guest Login
-touch /etc/lightdm/lightdm.conf
-echo "greeter-show-remote-login=false" | tee -a /etc/lightdm/lightdm.conf
-echo "allow-guest=false" | tee -a /etc/lightdm/lightdm.conf
+touch /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+echo "" | tee -a /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+echo "Remove Guest Login" | tee -a /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+echo "allow-guest=false" | tee -a /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 
 
 ##
