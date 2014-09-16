@@ -316,11 +316,6 @@ curl https://raw.github.com/alghanmi/vps_setup/master/scripts/iptables-setup.sh 
 chmod 755 /home/$SUPER_USER/bin/iptables-setup.sh
 sh /home/$SUPER_USER/bin/iptables-setup.sh
 
-## Lighttpd
-curl https://raw.github.com/alghanmi/vps_setup/master/scripts/lighttpd-setup.sh | sed -e "s/create_site example.com/create_site $SERVER_NAME/g" > /home/$SUPER_USER/bin/lighttpd-setup.sh
-chmod 755 /home/$SUPER_USER/bin/lighttpd-setup.sh
-sh /home/$SUPER_USER/bin/lighttpd-setup.sh
-
 
 ##
 ## User Configuration Files
