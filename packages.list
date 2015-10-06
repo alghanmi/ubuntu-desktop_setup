@@ -4,7 +4,7 @@
 
 ## Libraries, Software & Development Essentials
 ssh openssh-server openssl
-build-essential binutils aptitude
+build-essential binutils aptitude apt-transport-https
 linux-headers-`uname -r` linux-headers-generic
 screen tmux
 
